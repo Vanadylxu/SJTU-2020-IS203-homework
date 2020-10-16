@@ -1,0 +1,24 @@
+#name "test10.seal"
+#4 func
+#4 OBJECTID evenjudgment
+#4 '('
+#4 TYPEID Int
+#4 OBJECTID x
+#4 ')'
+#4 TYPEID Bool
+#4 '{'
+#5 if
+#5 OBJECTID x
+#5 '%'
+#5 CONST_INT 2
+#5 ==
+#5 CONST_INT 0
+#5 '{'
+#6 return
+#6 CONST_BOOL true
+#6 ';'
+#7 '}'
+#8 return
+#8 CONST_BOOL false
+#8 ';'
+#9 '}'

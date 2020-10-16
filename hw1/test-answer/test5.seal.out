@@ -1,0 +1,21 @@
+#name "test5.seal"
+#4 var
+#4 OBJECTID x
+#4 TYPEID Int
+#4 ';'
+#5 OBJECTID x
+#5 '='
+#5 CONST_INT 1
+#5 ';'
+#6 if
+#6 OBJECTID x
+#6 '>'
+#6 CONST_INT 5
+#6 '{'
+#7 OBJECTID x
+#7 '='
+#7 OBJECTID x
+#7 '+'
+#7 CONST_INT 1
+#7 ';'
+#8 '}'

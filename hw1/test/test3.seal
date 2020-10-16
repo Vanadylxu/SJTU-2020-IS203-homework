@@ -1,0 +1,12 @@
+/*
+A correct example of string
+*/
+var s1 String;
+s1 = "test string";
+var s2 String;
+s2 = `haha
+haha
+hh`;
+var s3 String;
+s3 = "12 \
+12";

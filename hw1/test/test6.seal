@@ -1,0 +1,7 @@
+/*
+A correct example of loop statements
+*/
+
+while x>105{
+ x=x | 1;
+}

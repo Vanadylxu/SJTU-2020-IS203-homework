@@ -1,0 +1,9 @@
+#name "test1.seal"
+#4 var
+#4 OBJECTID x
+#4 TYPEID Int
+#4 ';'
+#5 OBJECTID x
+#5 '='
+#5 CONST_INT 255
+#5 ';'

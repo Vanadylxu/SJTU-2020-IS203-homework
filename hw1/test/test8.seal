@@ -1,0 +1,9 @@
+/*
+A false example of function call and definition
+*/
+func max(x Float, y Float) Float{
+	if x>=@y {
+		return x;
+	}
+	return y;
+}

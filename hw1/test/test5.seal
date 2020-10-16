@@ -1,0 +1,8 @@
+/*
+A correct example of condition statements
+*/
+var x Int;
+x = 1;
+if x>5{
+ x=x+1;
+}
