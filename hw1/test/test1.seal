@@ -1,0 +1,5 @@
+/*
+A correct example of variable declaration and assignment
+*/
+var x Int;
+x = 0xff;

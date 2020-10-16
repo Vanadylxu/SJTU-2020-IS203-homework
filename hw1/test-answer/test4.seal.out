@@ -1,0 +1,17 @@
+#name "test4.seal"
+#4 var
+#4 OBJECTID s
+#4 TYPEID String
+#4 ';'
+#5 OBJECTID s
+#5 '='
+#5 CONST_STRING "test string \\t"
+#5 ';'
+#6 OBJECTID s
+#6 '='
+#6 CONST_STRING "\\0"
+#6 ';'
+#7 OBJECTID s
+#7 '='
+#7 ERROR "String contains null character '\\0'"
+#7 ';'

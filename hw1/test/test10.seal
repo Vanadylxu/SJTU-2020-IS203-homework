@@ -1,0 +1,9 @@
+/*
+A correct example of function call and definition
+*/
+func evenjudgment(Int x) Bool{
+	if x%2==0 {
+		return true;
+	}
+	return false;
+}

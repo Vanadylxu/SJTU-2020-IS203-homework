@@ -1,0 +1,13 @@
+#name "test6.seal"
+#5 while
+#5 OBJECTID x
+#5 '>'
+#5 CONST_INT 105
+#5 '{'
+#6 OBJECTID x
+#6 '='
+#6 OBJECTID x
+#6 '|'
+#6 CONST_INT 1
+#6 ';'
+#7 '}'

@@ -1,0 +1,6 @@
+/*
+A false example of variable declaration and assignment
+*/
+
+var x Float;
+X = 12.3

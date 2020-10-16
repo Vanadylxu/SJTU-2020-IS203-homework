@@ -1,0 +1,9 @@
+/*
+A correct example of function call and definition
+*/
+func factorial(x Int) Int{
+	if x==1 {
+		return 1;
+	}
+	return x*factorial(x-1);
+}
