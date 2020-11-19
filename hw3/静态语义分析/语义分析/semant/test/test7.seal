@@ -1,0 +1,16 @@
+/* 
+this a correct example of SEAL 
+*/
+func main() Void{
+	var a Bool;
+	var b Bool;
+	var c Int;
+
+	a=true;
+	b=false;
+
+	if a || b {
+    	c=777;
+	}
+	return;
+}

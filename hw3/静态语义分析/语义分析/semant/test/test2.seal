@@ -1,0 +1,21 @@
+/* 
+this a false simple example of SEAL 
+"20: object c has not been defined."
+*/
+func max(x Float,y Float) Float{
+	if x>y{
+        	return x;
+	}
+	return y;
+}
+
+func main() Void{
+	var a Float;
+	var b Float;
+	var max_num Float;
+
+	a=22.2;
+	b=33.3;
+	max_num=max(a,b);
+	return c;
+}

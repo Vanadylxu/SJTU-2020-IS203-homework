@@ -1,0 +1,14 @@
+/* 
+this a false example of SEAL 
+12: Returns Bool , but need Void
+*/
+func main() Void{
+	var c Bool;
+	var a Int;
+	a=100;
+	if a==100{
+	c = true;	
+	}
+	return c;
+}
+

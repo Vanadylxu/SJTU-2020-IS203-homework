@@ -1,0 +1,16 @@
+/* 
+this a correct example of SEAL 
+*/
+func main() Void{
+	var c Int;
+	c=equal(2,3);
+	return;
+}
+func equal(a Int,b Int) Int{
+   	if a != b{
+		return a+b;
+	}
+	return a;
+}
+
+

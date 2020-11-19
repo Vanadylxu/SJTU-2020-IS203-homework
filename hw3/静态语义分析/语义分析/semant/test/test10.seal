@@ -1,0 +1,9 @@
+/* 
+this a correct example of SEAL 
+*/
+func main() Void{
+	var x Int;
+	x=10;
+	x=x+1;
+	return;
+}
