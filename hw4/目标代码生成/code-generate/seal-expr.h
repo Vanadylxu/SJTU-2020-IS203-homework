@@ -16,21 +16,22 @@ typedef class Call_class *Call;
 class Expr_class : public Stmt_class {
 public:     
    Symbol type;                      
+   Stmt copy_Stmt() { return copy_Expr(); }   
    Symbol getType() { return type; }           
-   Expr setType(Symbol s) { type = s; return this; } 
-   Stmt copy_Stmt() { return copy_Expr(); }             
+   Expr setType(Symbol s) { type = s; return this; }           
    Expr_class() { type = (Symbol) NULL; }
    Expr_class(Symbol a1) {
         type = a1;
    }
-   void check(Symbol a) {checkType();}
+   void check(Symbol s) {checkType();}
    void dump_type(ostream&, int);
-
+   
    virtual void dump_with_types(ostream&,int) = 0; 
 	virtual void dump(ostream&,int) = 0;
    virtual Expr copy_Expr() = 0;
    virtual Symbol checkType() = 0;
    virtual bool is_empty_Expr() = 0;
+   virtual void code(ostream&) = 0;
 };
 
 class Call_class : public Expr_class {
@@ -44,12 +45,13 @@ public:
    }
    Symbol getName(){return name;}
    Actuals getActuals(){return actuals;}
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump_with_types(ostream&,int); 
 	void dump(ostream&,int);
    void dump_type(ostream& , int );
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 
@@ -60,12 +62,13 @@ public:
    Actual_class(Expr a1)  {
         expr = a1;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump_with_types(ostream&,int); 
 	void dump(ostream&,int);
    void dump_type(ostream& , int );
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructor - expr
@@ -78,11 +81,12 @@ public:
       lvalue = a1;
       value = a2;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructor - add
@@ -95,11 +99,12 @@ public:
       e1 = a1;
       e2 = a2;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructor - minus
@@ -112,11 +117,12 @@ public:
       e1 = a1;
       e2 = a2;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructor - multi
@@ -129,11 +135,12 @@ public:
       e1 = a1;
       e2 = a2;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int);
-   Symbol checkType(); 
+   bool is_empty_Expr(){ return false;}
+   Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructor - divide
@@ -146,11 +153,12 @@ public:
       e1 = a1;
       e2 = a2;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructor - mod
@@ -163,11 +171,12 @@ public:
       e1 = a1;
       e2 = a2;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructor - -
@@ -178,11 +187,12 @@ public:
    Neg_class(Expr a1) {
       e1 = a1;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructor - <
@@ -195,11 +205,12 @@ public:
       e1 = a1;
       e2 = a2;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructor - <=
@@ -212,11 +223,12 @@ public:
       e1 = a1;
       e2 = a2;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructor - ==
@@ -229,11 +241,12 @@ public:
       e1 = a1;
       e2 = a2;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructor - !=
@@ -246,11 +259,12 @@ public:
       e1 = a1;
       e2 = a2;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructor - >=
@@ -263,11 +277,12 @@ public:
       e1 = a1;
       e2 = a2;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructor - >
@@ -280,11 +295,12 @@ public:
       e1 = a1;
       e2 = a2;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructor - and &&
@@ -297,11 +313,12 @@ public:
       e1 = a1;
       e2 = a2;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructor - or ||
@@ -314,11 +331,12 @@ public:
       e1 = a1;
       e2 = a2;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructor - xor ^
@@ -331,11 +349,12 @@ public:
       e1 = a1;
       e2 = a2;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructor - not !
@@ -346,11 +365,12 @@ public:
    Not_class(Expr a1) {
       e1 = a1;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructor - bitnot ~
@@ -361,11 +381,12 @@ public:
    Bitnot_class(Expr a1) {
       e1 = a1;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 class Bitand_class : public Expr_class {
@@ -377,11 +398,12 @@ public:
       e1 = a1;
       e2 = a2;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 class Bitor_class : public Expr_class {
@@ -393,11 +415,12 @@ public:
       e1 = a1;
       e2 = a2;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructconst_int - const_int
@@ -408,11 +431,12 @@ public:
    Const_int_class(Symbol a1) {
       value = a1;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructconst_string - const_string
@@ -423,11 +447,12 @@ public:
    Const_string_class(Symbol a1) {
       value = a1;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructconst_float - const_float
@@ -438,11 +463,12 @@ public:
    Const_float_class(Symbol a1) {
       value = a1;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructconst_bool - const_bool
@@ -453,11 +479,12 @@ public:
    Const_bool_class(Boolean a1) {
       value = a1;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 class Object_class : public Expr_class {
@@ -467,12 +494,13 @@ public:
    Object_class(Symbol a1) {
       var = a1;
    }
-   bool is_empty_Expr(){ return false;}
    Expr copy_Expr(){return copy_Object();};
    Object copy_Object();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return false;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 // define constructor - no_expr
@@ -481,11 +509,12 @@ protected:
 public:
    No_expr_class() {
    }
-   bool is_empty_Expr(){ return true;}
    Expr copy_Expr();
    void dump(ostream& stream, int n);
    void dump_with_types(ostream&,int); 
+   bool is_empty_Expr(){ return true;}
    Symbol checkType();
+   void code(ostream&);
 };
 
 

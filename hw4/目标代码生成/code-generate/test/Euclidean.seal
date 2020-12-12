@@ -1,0 +1,32 @@
+/* this a simple example of SEAL
+    you can change the content whatever you want
+    the original file may not consist of all the syntax
+*/
+
+func euclidean(x1 Int, x2 Int) Int {
+    var m Int;
+    if x1 < x2 {
+        m = x1;
+        x1 = x2;
+        x2 = m;
+    }
+
+    while x1 % x2 != 0 {
+        m = x2;
+        x2 = x1 % x2;
+        x1 = m;
+    }
+
+    return x2;
+}
+
+func main() Void{
+    var x1 Int;
+    var x2 Int;
+    x1 = 23398;
+    x2 = 14567;
+    printf("gcd(23398, 14567) = %lld \n ", euclidean(x1,x2));
+
+    return;
+}
+

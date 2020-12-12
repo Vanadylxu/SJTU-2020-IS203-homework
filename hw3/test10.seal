@@ -1,0 +1,13 @@
+func main() Void{
+	var c Bool;
+	var a Int;
+	a=100;
+	if a==100{
+    var b Bool;
+	c = true;
+    b = true;	
+	}
+    b = true;
+	return;
+}
+
